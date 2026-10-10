@@ -1,0 +1,486 @@
+/* Brasschaats Mandoline-Orkest
+   Kleuren en lettertype staan bovenaan, zodat ze op één plek aan te passen zijn. */
+
+:root {
+  --tan: #c39b7c;          /* achtergrond pagina */
+  --tan-line: #d8bfa9;     /* scheidingslijn */
+  --brown: #4d190a;        /* menubalk */
+  --burgundy: #7f2e2d;     /* titels en tekst op de pagina */
+  --cream: #f6ebe1;        /* tekst op de menubalk */
+  --brand: #c39b7c;        /* naam van het orkest in het menu */
+  --focus: #fff4e6;
+
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --maxw: 1240px;          /* breedte van de inhoud */
+  --maxw-header: 1760px;   /* breedte van de menubalk */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--tan);
+  color: var(--burgundy);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem; top: -4rem;
+  background: var(--brown);
+  color: var(--cream);
+  padding: .6rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { top: 1rem; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+main :focus-visible, .site-footer :focus-visible { outline-color: var(--burgundy); }
+
+/* Bovenbalk */
+.topbar { background: var(--tan); font-size: .9rem; }
+.topbar__inner {
+  max-width: var(--maxw-header);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  padding-block: .8rem;
+}
+.topbar a { color: var(--cream); text-decoration: none; opacity: .9; }
+.topbar a:hover { opacity: 1; text-decoration: underline; }
+
+/* Menubalk */
+.site-header { background: var(--brown); color: var(--cream); position: relative; z-index: 10; }
+.site-header__inner {
+  max-width: var(--maxw-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 6.4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  text-decoration: none;
+  color: var(--brand);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.brand img { width: 56px; height: 56px; }
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav a, .sub-toggle {
+  display: block;
+  padding: .6rem .85rem;
+  color: var(--cream);
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+.nav a:hover, .sub-toggle:hover { text-decoration: underline; text-underline-offset: .3em; }
+.nav a[aria-current="page"],
+.nav .sub-toggle[aria-current] { color: var(--brand); }
+
+.sub-toggle::after {
+  content: "";
+  display: inline-block;
+  width: .45em; height: .45em;
+  margin-left: .5em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-.15em) rotate(45deg);
+}
+
+.has-sub { position: relative; }
+.sub {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: .4rem 0;
+  min-width: 13rem;
+  background: var(--brown);
+  border-top: 2px solid var(--tan);
+  box-shadow: 0 6px 14px rgb(0 0 0 / .25);
+}
+.sub a { font-weight: 600; white-space: nowrap; }
+
+/* Desktop: submenu zichtbaar bij hover, focus of na een klik */
+@media (min-width: 72rem) {
+  .brand { flex-shrink: 0; }
+  .nav-toggle { display: none; }
+  .sub { position: absolute; left: 0; top: 100%; }
+  .has-sub:hover > .sub,
+  .has-sub:focus-within > .sub,
+  .sub-toggle[aria-expanded="true"] + .sub { display: block; }
+}
+
+/* Mobiel: menu klapt open onder de balk */
+@media (max-width: 71.99rem) {
+  .brand { flex-shrink: 1; min-width: 0; font-size: 1.05rem; gap: .7rem; }
+  .nav-toggle { flex-shrink: 0; }
+  .brand img { width: 44px; height: 44px; }
+  .site-header__inner { min-height: 5rem; }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem; height: 2.75rem;
+    background: none;
+    border: 1px solid rgb(246 235 225 / .4);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .nav-toggle__bars,
+  .nav-toggle__bars::before,
+  .nav-toggle__bars::after {
+    display: block;
+    width: 1.35rem; height: 2px;
+    background: var(--cream);
+    content: "";
+    position: relative;
+  }
+  .nav-toggle__bars::before { position: absolute; top: -6px; }
+  .nav-toggle__bars::after  { position: absolute; top: 6px; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    background: var(--brown);
+    border-top: 1px solid rgb(246 235 225 / .2);
+    padding: .5rem 1.5rem 1rem;
+    box-shadow: 0 8px 14px rgb(0 0 0 / .25);
+  }
+  .nav.is-open { display: block; }
+  .nav__list { flex-direction: column; align-items: stretch; gap: 0; }
+  .nav a, .sub-toggle { width: 100%; text-align: left; padding: .8rem .25rem; }
+  .has-sub > a { padding: 0; }
+  .sub { box-shadow: none; border-top: 0; padding: 0 0 .25rem 1rem; }
+  .has-sub:hover > .sub,
+  .has-sub:focus-within > .sub,
+  .has-sub:has(.sub-toggle[aria-expanded="true"]) > .sub { display: block; }
+}
+
+/* Inhoud */
+main { padding-block: 4rem 3rem; }
+
+h1 {
+  margin: 0 0 3rem;
+  text-align: center;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--burgundy);
+}
+
+.banner { margin: 0 auto; max-width: 1240px; }
+.banner img { width: 100%; border-radius: 6px; }
+
+.tagline {
+  max-width: 62rem;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* Pagina 'Wie zijn wij?' */
+.intro {
+  max-width: 62rem;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+.blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 3rem 4rem;
+  max-width: 54rem;
+  margin: 4rem auto 0;
+}
+.block h2 {
+  margin: 0 0 .75rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.block h2 a { text-decoration: none; }
+.block h2 a:hover { text-decoration: underline; }
+.block p { margin: 0; }
+.block p a { text-underline-offset: .2em; }
+
+/* Pagina 'Boekingen' */
+.bookings,
+.privacy-page {
+  max-width: 46rem;
+  margin: 0 auto;
+  font-size: .95rem;
+  line-height: 1.55;
+}
+.bookings h1,
+.privacy-page h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+.bookings h2 {
+  margin: 1.25rem 0 .25rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.bookings h3 {
+  margin: .25rem 0 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.bookings h4 {
+  margin: 1.25rem 0 .25rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.bookings p,
+.privacy-page p { margin: 0 0 .75rem; }
+.bookings__intro { margin-bottom: 1.25rem !important; }
+.booking-section { margin-top: 1.5rem; }
+.booking-section h3 { margin-bottom: 1.25rem; }
+.booking-financial {
+  margin: 1.75rem 0 0;
+  color: var(--cream);
+}
+.booking-financial h2 { margin-top: 0; }
+.booking-financial h3 { margin: .15rem 0 .75rem; }
+.booking-financial p { margin: 1.75rem 0 2rem; }
+.booking-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0 0 0 1rem;
+}
+.booking-list li {
+  position: relative;
+  margin: .15rem 0;
+  padding-left: 1.1rem;
+}
+.booking-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+}
+
+/* Pagina 'Privacybeleid' */
+.privacy-page__intro { margin-bottom: 3rem !important; }
+.privacy-page__principles { margin-top: .75rem; }
+.privacy-page__contact-intro { margin-top: 3rem !important; }
+.privacy-page__address {
+  margin-top: 3rem;
+  font-style: normal;
+}
+
+/* Pagina 'Dirigente' */
+.conductor-page {
+  max-width: 62rem;
+  margin: 0 auto;
+}
+.conductor-page > h1 {
+  margin-bottom: 1rem;
+}
+.conductor-intro {
+  margin: 0 auto 6rem;
+  text-align: center;
+}
+.conductor-profile {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: 2rem;
+}
+.conductor-portrait {
+  margin: 0;
+  text-align: center;
+}
+.conductor-portrait__placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: var(--brown);
+  color: var(--cream);
+  font-size: 5rem;
+  font-weight: 300;
+}
+.conductor-portrait figcaption {
+  margin-top: 1.25rem;
+}
+.conductor-biography h2,
+.conductor-history h2 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.conductor-biography p,
+.conductor-history p {
+  margin: 0 0 .75rem;
+}
+.conductor-history {
+  max-width: 48rem;
+  margin: 5rem auto 0;
+}
+.conductor-history h2 {
+  margin-bottom: 1rem;
+}
+.conductor-back {
+  display: block;
+  width: fit-content;
+  margin: 5rem auto 0;
+  padding: .85rem 1.5rem;
+  color: var(--brown);
+  background: var(--cream);
+  border-color: var(--cream);
+  text-align: center;
+}
+.conductor-back:hover {
+  color: var(--brown);
+  background: #fff;
+  border-color: #fff;
+}
+
+@media (max-width: 47.99rem) {
+  .conductor-intro { margin-bottom: 3rem; }
+  .conductor-profile { grid-template-columns: 1fr; }
+  .conductor-portrait { max-width: 28rem; margin-inline: auto; }
+  .conductor-biography h2,
+  .conductor-history h2 { font-size: 1.7rem; }
+  .conductor-history { margin-top: 3.5rem; }
+  .conductor-back { margin-top: 3rem; }
+  .bookings h2 { font-size: 1.7rem; }
+  .bookings h3 { font-size: 1.35rem; }
+}
+
+/* Pagina 'Contacteer ons' */
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 3rem 5rem;
+  align-items: start;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.contact__list {
+  list-style: none;
+  margin: 3.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  font-size: 1.35rem;
+}
+.contact__list a { text-underline-offset: .2em; }
+.contact__form h1 {
+  margin: 0 0 1.25rem;
+  text-align: left;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-weight: 700;
+}
+.contact__intro { margin: 0 0 2.25rem; }
+
+.field { margin-bottom: 1.4rem; }
+.field label { display: block; margin-bottom: .4rem; font-weight: 600; font-size: .95rem; }
+.field input, .field textarea {
+  display: block;
+  width: 100%;
+  padding: .75rem .9rem;
+  font: inherit;
+  color: #2b0f08;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.field textarea { resize: vertical; min-height: 9rem; }
+.field input:focus-visible, .field textarea:focus-visible {
+  outline: 3px solid var(--brown);
+  outline-offset: 1px;
+}
+
+.button {
+  display: inline-block;
+  padding: .85rem 2rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--cream);
+  background: var(--brown);
+  border: 2px solid var(--brown);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.button:hover { background: #3a1207; border-color: #3a1207; }
+.button:focus-visible { outline: 3px solid var(--burgundy); outline-offset: 3px; }
+.button[disabled] { opacity: .6; cursor: wait; }
+
+.form-status { min-height: 1.6rem; margin: 1rem 0 0; font-weight: 600; }
+.form-status.is-error { color: #5a0d0d; }
+.form-note { margin: .25rem 0 0; font-size: .9rem; }
+
+@media (max-width: 47.99rem) {
+  .contact { grid-template-columns: 1fr; }
+  .contact__list { margin-top: 0; font-size: 1.2rem; }
+}
+
+/* Voet */
+.site-footer {
+  margin-top: 2rem;
+  padding-block: 2.5rem 3rem;
+  text-align: center;
+  font-size: .95rem;
+}
+.site-footer .wrap { border-top: 1px solid var(--tan-line); padding-top: 2.5rem; }
+.site-footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}

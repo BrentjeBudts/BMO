@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacteer ons | Brasschaats Mandoline-Orkest</title>
+  <meta name="description" content="Contacteer het Brasschaats Mandoline-Orkest: bel ons of stuur een bericht.">
+  <meta property="og:title" content="Contacteer ons | Brasschaats Mandoline-Orkest">
+  <meta property="og:description" content="Bel ons of stuur een bericht.">
+  <meta property="og:image" content="images/banner.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#4d190a">
+  <link rel="icon" href="../images/logo.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+
+  <!-- Bovenbalk: sociale links. Vervang de # door de echte adressen. -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <a href="#" rel="noopener" target="_blank">Facebook</a>
+      <a href="https://open.spotify.com/artist/1rUqsuNDXbhpg9j1srdVkf?si=Q549NG70TASA_FOCATFZ-Q" rel="noopener" target="_blank">Spotify</a>
+    </div>
+  </div>
+
+  <!-- Hoofdmenu: kopieer dit blok (header) naar elke nieuwe pagina. -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+
+      <a class="brand" href="../index.html">
+        <img src="../images/logo.png" alt="" width="56" height="56">
+        <span>Brasschaats Mandoline-Orkest</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hoofdmenu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav id="hoofdmenu" class="nav" aria-label="Hoofdmenu">
+        <ul class="nav__list">
+          <li><a href="../index.html">Startpagina</a></li>
+
+          <li class="has-sub">
+            <a href="over-ons.html"><button type="button" class="sub-toggle" aria-expanded="false">Over ons</button></a>
+            <ul class="sub">
+              <li><a href="dirigente.html">Dirigente</a></li>
+              <li><a href="geschiedenis.html">Geschiedenis</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contact.html" aria-current="page">Contacteer ons</a></li>
+          <li><a href="cds.html">CD's</a></li>
+          <li><a href="boekingen.html">Boekingen</a></li>
+          <li><a href="nieuws.html">Nieuws</a></li>
+
+          <li class="has-sub">
+            <button type="button" class="sub-toggle" aria-expanded="false">Meer pagina's</button>
+            <ul class="sub">
+              <!-- Voorlopige onderdelen: pas aan zodra de pagina's bestaan. -->
+              <li><a href="fotos.html">Foto's</a></li>
+              <li><a href="links.html">Links</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="inhoud" class="wrap">
+    <div class="contact">
+
+      <div class="contact__info">
+        <ul class="contact__list">
+          <li><a href="tel:+32484288691">0032 484 28 86 91</a></li>
+          <!-- Vervang de # door het echte adres. -->
+          <li><a href="https://open.spotify.com/artist/1rUqsuNDXbhpg9j1srdVkf?si=Q549NG70TASA_FOCATFZ-Q" rel="noopener" target="_blank">bezoek ons op Spotify</a></li>
+          <li><a href="#" rel="noopener" target="_blank">brasschaatsmandolineorkest</a></li>
+        </ul>
+      </div>
+
+      <div class="contact__form">
+        <h1>Stuur ons een bericht</h1>
+        <p class="contact__intro">Laat uw gegevens achter en wij zullen u zo spoedig mogelijk contacteren.</p>
+
+        <!-- Formulier via Web3Forms: zie README voor het instellen van de sleutel. -->
+        <form id="contactformulier" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="a20b0633-0dd2-4d2a-a2e5-bae459e8ca1c">
+          <input type="hidden" name="subject" value="Nieuw bericht via de website">
+          <input type="hidden" name="from_name" value="Website Brasschaats Mandoline-Orkest">
+          <!-- Verborgen valkuil voor spam: moet leeg blijven -->
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label for="naam">Uw naam</label>
+            <input id="naam" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mailadres</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="bericht">Bericht</label>
+            <textarea id="bericht" name="message" rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="button">Stuur ons een bericht</button>
+          <p id="formulier-status" class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note">We gebruiken uw gegevens enkel om op uw bericht te antwoorden.</p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Alle rechten voorbehouden</p>
+      <p><a href="privacybeleid.html">Privacyverklaring</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/contact.js" defer></script>
+</body>
+</html>
