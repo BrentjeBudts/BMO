@@ -6,6 +6,7 @@ Gewone HTML/CSS, geen build-stap. Open `index.html` in een browser of draai loka
 - `index.html`: startpagina (bevat het menu; kopieer het `<header>`-blok naar elke nieuwe pagina)
 - `over-ons.html`: 'Wie zijn wij?'
 - `contact.html`: contactgegevens en formulier (`js/contact.js`)
+- `pages/bestellen.html`: CD-bestelformulier, dat dezelfde Web3Forms-sleutel gebruikt als het contactformulier
 - `css/style.css`: kleuren en lettertype staan bovenaan in `:root`
 - `js/nav.js`: hamburgermenu en uitklapmenu's
 - `images/logo.png`, `images/banner.jpg`: voorlopig uitgesneden uit een schermafdruk. Vervang door de originelen (zelfde bestandsnaam), banner bij voorkeur 1600 px breed.
@@ -18,8 +19,8 @@ Gewone HTML/CSS, geen build-stap. Open `index.html` in een browser of draai loka
 
 ## Contactformulier (Web3Forms)
 1. Maak op web3forms.com een gratis sleutel aan met het e-mailadres waar de berichten moeten aankomen (liefst een gedeeld adres van het orkest).
-2. Zet die sleutel in `contact.html` bij `access_key` (de sleutel is bedoeld om openbaar in de pagina te staan).
-3. Verstuur na elke wijziging aan het formulier een testbericht en kijk ook in de spam-map.
+2. Zet die sleutel in `contact.html` en `pages/bestellen.html` bij `access_key` (de sleutel is bedoeld om openbaar in de pagina te staan). Stel de sleutel in voor `concertenbmo@gmail.com`.
+3. Verstuur na elke wijziging aan een formulier een testbericht en kijk ook in de spam-map.
 
 ## Hosting (Cloudflare Pages)
 Repo koppelen, geen build-commando, output-map = hoofdmap.

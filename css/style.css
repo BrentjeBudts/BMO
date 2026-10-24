@@ -570,6 +570,89 @@ h1 {
 }
 .contact__intro { margin: 0 0 2.25rem; }
 
+.order-page {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+.order-page > h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+}
+.order-intro { margin: 0 0 2rem; }
+.order-fieldset {
+  min-width: 0;
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgb(77 25 10 / .18);
+  border-radius: 3px;
+  background: rgb(246 235 225 / .35);
+}
+.order-fieldset legend {
+  padding: 0 .5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.order-fieldset .field:last-child { margin-bottom: 0; }
+.order-street,
+.order-address {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, .42fr);
+  gap: 1rem;
+}
+.order-address { grid-template-columns: minmax(8rem, .55fr) minmax(0, 1.45fr); }
+.order-quantities {
+  display: flex;
+  flex-direction: column;
+}
+.order-quantities .field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgb(77 25 10 / .12);
+}
+.order-quantities .field:first-child { padding-top: 0; }
+.order-quantities .field:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.order-quantities label { margin: 0; }
+.order-quantities input {
+  flex: 0 0 5.5rem;
+  width: 5.5rem;
+  text-align: center;
+}
+.order-help { margin: 0 0 1rem; font-size: .9rem; }
+.order-shipping {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  border-radius: 3px;
+  background: var(--brown);
+  color: var(--cream);
+}
+.order-shipping h2 { margin: 0 0 .5rem; font-size: 1.3rem; }
+.order-shipping ul { margin: 0 0 .75rem; padding-left: 1.5rem; }
+.order-shipping p { margin: 0; }
+.order-submit {
+  padding: 1.5rem;
+  border: 1px solid rgb(77 25 10 / .18);
+  border-radius: 3px;
+  background: rgb(246 235 225 / .35);
+}
+.order-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: .75rem;
+  margin-bottom: 1.25rem;
+}
+.order-consent input { margin-top: .45rem; }
+.order-consent label { font-size: .9rem; }
+.order-submit .form-status:empty { display: none; }
+
 .field { margin-bottom: 1.4rem; }
 .field label { display: block; margin-bottom: .4rem; font-weight: 600; font-size: .95rem; }
 .field input, .field textarea {
@@ -608,6 +691,9 @@ h1 {
 .form-note { margin: .25rem 0 0; font-size: .9rem; }
 
 @media (max-width: 47.99rem) {
+  .order-fieldset, .order-shipping, .order-submit { padding: 1rem; }
+  .order-street, .order-address { grid-template-columns: 1fr; gap: 0; }
+  .order-quantities .field { align-items: center; }
   .conductor-intro { margin-bottom: 3rem; }
   .conductor-profile { grid-template-columns: 1fr; }
   .conductor-portrait { max-width: 28rem; margin-inline: auto; }

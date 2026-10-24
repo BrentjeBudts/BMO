@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = await response.json();
   
     if (response.ok && result.success) {
-      status.textContent = "Bedankt! Uw bericht is succesvol verzonden.";
+      status.textContent =
+        form.dataset.successMessage || "Bedankt! Uw bericht is succesvol verzonden.";
       form.reset();
     } else {
       status.textContent =

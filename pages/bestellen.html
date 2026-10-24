@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CD bestelformulier | Brasschaats Mandoline-Orkest</title>
+	<meta name="description" content="Bestel CD's van het Brasschaats Mandoline-Orkest.">
+	<meta name="theme-color" content="#4d190a">
+	<link rel="icon" href="../images/logo.png" type="image/png">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+	<a class="skip-link" href="#inhoud">Naar de inhoud</a>
+
+	<div class="topbar">
+		<div class="wrap topbar__inner">
+			<a href="#" rel="noopener" target="_blank">Facebook</a>
+			<a href="https://open.spotify.com/artist/1rUqsuNDXbhpg9j1srdVkf?si=Q549NG70TASA_FOCATFZ-Q" rel="noopener" target="_blank"><img class="spotify-icon" src="../images/spotify-icon-2048x2048-n3imyp8e.png" alt="">Spotify</a>
+		</div>
+	</div>
+
+	<header class="site-header">
+		<div class="wrap site-header__inner">
+			<a class="brand" href="../index.html">
+				<img src="../images/logo.png" alt="" width="56" height="56">
+				<span>Brasschaats Mandoline-Orkest</span>
+			</a>
+
+			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hoofdmenu">
+				<span class="nav-toggle__bars" aria-hidden="true"></span>
+				<span class="visually-hidden">Menu</span>
+			</button>
+
+			<nav id="hoofdmenu" class="nav" aria-label="Hoofdmenu">
+				<ul class="nav__list">
+					<li><a href="../index.html">Startpagina</a></li>
+					<li class="has-sub">
+						<a href="over-ons.html"><button type="button" class="sub-toggle" aria-expanded="false">Over ons</button></a>
+						<ul class="sub">
+							<li><a href="dirigente.html">Dirigente</a></li>
+							<li><a href="geschiedenis.html">Geschiedenis</a></li>
+						</ul>
+					</li>
+					<li><a href="contact.html">Contacteer ons</a></li>
+					<li><a href="cds.html">CD's</a></li>
+					<li><a href="boekingen.html">Boekingen</a></li>
+					<li><a href="nieuws.html">Nieuws</a></li>
+					<li class="has-sub">
+						<button type="button" class="sub-toggle" aria-expanded="false">Meer pagina's</button>
+						<ul class="sub">
+							<li><a href="fotos.html">Foto's</a></li>
+							<li><a href="links.html">Links</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="inhoud" class="wrap">
+		<section class="order-page" aria-labelledby="order-title">
+			<h1 id="order-title">CD bestelformulier Brasschaats Mandoline-Orkest</h1>
+			<p class="order-intro">Vul uw persoonlijke gegevens en het aantal CD's in en klik op "Verzenden". Een bestuurslid van het BMO verwerkt uw bestelling en stuurt u per e-mail de exacte prijs (de CD's plus verzendingskosten) en de gegevens voor overschrijving. Na ontvangst van uw betaling wordt de bestelling verstuurd.</p>
+
+			<form id="contactformulier" class="order-form" action="https://api.web3forms.com/submit" method="POST" data-success-message="Bedankt! Uw bestelling is succesvol verzonden. U ontvangt per e-mail de exacte prijs en de betaalgegevens.">
+				<input type="hidden" name="access_key" value="a20b0633-0dd2-4d2a-a2e5-bae459e8ca1c">
+				<input type="hidden" name="subject" value="Nieuwe CD-bestelling via de website">
+				<input type="hidden" name="from_name" value="BMO CD-bestelformulier">
+				<input type="hidden" name="message" value="Nieuwe CD-bestelling. De ingevulde gegevens en aantallen staan hieronder.">
+				<input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+
+				<fieldset class="order-fieldset">
+					<legend>Uw gegevens</legend>
+					<div class="field">
+						<label for="naam">Naam</label>
+						<input id="naam" name="name" type="text" autocomplete="name" required>
+					</div>
+					<div class="order-street">
+						<div class="field">
+							<label for="straat">Straat</label>
+							<input id="straat" name="straat" type="text" autocomplete="address-line1" required>
+						</div>
+						<div class="field">
+							<label for="huisnummer">Huisnummer (en busnummer)</label>
+							<input id="huisnummer" name="huisnummer" type="text" autocomplete="address-line2" required>
+						</div>
+					</div>
+					<div class="order-address">
+						<div class="field">
+							<label for="postcode">Postcode</label>
+							<input id="postcode" name="postcode" type="text" autocomplete="postal-code" required>
+						</div>
+						<div class="field">
+							<label for="gemeente">Gemeente</label>
+							<input id="gemeente" name="gemeente" type="text" autocomplete="address-level2" required>
+						</div>
+					</div>
+					<div class="field">
+						<label for="land">Land</label>
+						<input id="land" name="land" type="text" autocomplete="country-name" required>
+					</div>
+					<div class="field">
+						<label for="email">E-mailadres</label>
+						<input id="email" name="email" type="email" autocomplete="email" required>
+					</div>
+				</fieldset>
+
+				<fieldset class="order-fieldset">
+					<legend>Aantal CD's</legend>
+					<p class="order-help">Vul per CD het gewenste aantal in. Laat op 0 staan als u die CD niet wenst.</p>
+					<div class="order-quantities">
+						<div class="field">
+							<label for="cd2">Aantal CD2 (10 €/stuk)</label>
+							<input id="cd2" name="Aantal CD2 (10 euro per stuk)" type="number" min="0" step="1" value="0" inputmode="numeric">
+						</div>
+						<div class="field">
+							<label for="cd3">Aantal CD3 Fuego Romántico (12 €/stuk)</label>
+							<input id="cd3" name="Aantal CD3 Fuego Romántico (12 euro per stuk)" type="number" min="0" step="1" value="0" inputmode="numeric">
+						</div>
+						<div class="field">
+							<label for="cd4">Aantal CD4 Poème (15 €/stuk)</label>
+							<input id="cd4" name="Aantal CD4 Poème (15 euro per stuk)" type="number" min="0" step="1" value="0" inputmode="numeric">
+						</div>
+						<div class="field">
+							<label for="cd5">Aantal CD5 Splendore (15 €/stuk)</label>
+							<input id="cd5" name="Aantal CD5 Splendore (15 euro per stuk)" type="number" min="0" step="1" value="0" inputmode="numeric">
+						</div>
+						<div class="field">
+							<label for="cd6">Aantal CD6 Aspri Mera (15 €/stuk)</label>
+							<input id="cd6" name="Aantal CD6 Aspri Mera (15 euro per stuk)" type="number" min="0" step="1" value="0" inputmode="numeric">
+						</div>
+						<div class="field">
+							<label for="cd7">Aantal CD7 Hommage Marcel De Cauwer (15 €/stuk)</label>
+							<input id="cd7" name="Aantal CD7 Hommage Marcel De Cauwer (15 euro per stuk)" type="number" min="0" step="1" value="0" inputmode="numeric">
+						</div>
+					</div>
+				</fieldset>
+
+				<section class="order-shipping" aria-labelledby="shipping-title">
+					<h2 id="shipping-title">Verzendingskosten</h2>
+					<ul>
+						<li>Voor 1 CD: België 5 €, Europa 8 €, buiten Europa op aanvraag.</li>
+						<li>Bij een bestelling van meer dan één CD bekijken we de verzendingskosten geval per geval.</li>
+					</ul>
+					<p><strong>De precieze totale kostprijs</strong> wordt u per e-mail doorgestuurd, samen met een uitnodiging tot betaling.</p>
+				</section>
+
+				<fieldset class="order-fieldset">
+					<legend>Commentaar</legend>
+					<div class="field">
+						<label for="commentaar">Commentaar (optioneel)</label>
+						<textarea id="commentaar" name="commentaar" rows="4"></textarea>
+					</div>
+				</fieldset>
+
+				<div class="order-submit">
+					<div class="order-consent">
+						<input id="privacy-akkoord" name="privacy_agreement" type="checkbox" value="Akkoord" required>
+						<label for="privacy-akkoord">Privacyvoorwaarden accepteren: voor de verwerking van uw bestelling en verzending zijn uw naam, e-mailadres en postadres noodzakelijk. Het BMO gebruikt deze gegevens uitsluitend voor de afhandeling van uw bestelling. Ik verklaar akkoord te gaan met het verwerken van deze persoonlijke gegevens.</label>
+					</div>
+					<button type="submit" class="button">Verzenden</button>
+					<p id="formulier-status" class="form-status" role="status" aria-live="polite"></p>
+					<p class="form-note">Vragen? <a href="mailto:concertenbmo@gmail.com">concertenbmo@gmail.com</a></p>
+				</div>
+			</form>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<p>© 2026 Alle rechten voorbehouden</p>
+			<p><a href="privacybeleid.html">Privacyverklaring</a></p>
+		</div>
+	</footer>
+
+	<script src="../js/nav.js" defer></script>
+	<script src="../js/contact.js" defer></script>
+</body>
+</html>
