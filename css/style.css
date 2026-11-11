@@ -75,7 +75,7 @@ main :focus-visible, .site-footer :focus-visible { outline-color: var(--burgundy
 }
 .topbar a { color: var(--cream); text-decoration: none; opacity: .9; }
 .topbar a:hover { opacity: 1; text-decoration: underline; }
-.spotify-icon {
+.link-icon {
   display: inline-block;
   width: 1.1em;
   height: 1.1em;
@@ -485,7 +485,7 @@ h1 {
   margin-bottom: 1rem;
 }
 .conductor-intro {
-  margin: 0 auto 6rem;
+  margin: 0 auto 4rem;
   text-align: center;
 }
 .conductor-profile {
@@ -498,14 +498,8 @@ h1 {
   margin: 0;
   text-align: center;
 }
-.conductor-portrait__placeholder {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 3;
-  background: var(--brown);
-  color: var(--cream);
-  font-size: 5rem;
-  font-weight: 300;
+.conductor-portrait img {
+  border-radius: 6px;
 }
 .conductor-portrait figcaption {
   margin-top: 1.25rem;
@@ -682,6 +676,7 @@ h1 {
   border-radius: 3px;
   cursor: pointer;
 }
+.conductor-history .conductor-back { display: block; }
 .button:hover { background: #3a1207; border-color: #3a1207; }
 .button:focus-visible { outline: 3px solid var(--burgundy); outline-offset: 3px; }
 .button[disabled] { opacity: .6; cursor: wait; }

@@ -12,7 +12,6 @@ Gewone HTML/CSS, geen build-stap. Open `index.html` in een browser of draai loka
 - `images/logo.png`, `images/banner.jpg`: voorlopig uitgesneden uit een schermafdruk. Vervang door de originelen (zelfde bestandsnaam), banner bij voorkeur 1600 px breed.
 
 ## Nog in te vullen
-- Facebook- en Spotify-adressen in de bovenbalk en op `contact.html` (`href="#"`)
 - Web3Forms-sleutel in `contact.html`
 - Menu-links: `dirigente.html`, `geschiedenis.html`, `contact.html`, `cds.html`, `boekingen.html`, `nieuws.html`, `fotos.html`, `links.html`. Het submenu onder 'Meer pagina's' is nog voorlopig.
 - Jaartal in de voet (`© 2026`)
